@@ -1,0 +1,138 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+
+          <!-- form card login -->
+          <div class="card rounded-0">
+            <div class="card-header" style="background-color: rgb(194,26,4);">
+              <h3 class="mb-0 text-white">Inscription teacher</h3>
+            </div>
+            <div class="card-body">
+              <form class="form"  #inscriptionForm="ngForm" name="inscriptionForm">
+                <!-- Bloc Name LastName               -->
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="">First Name</label>
+                      <input  #firstNameControl="ngModel" ngModel required
+                              type="text" class="form-control form-control-lg rounded-0" name="first_name"  >
+                    </div>
+                    <div
+                      *ngIf="!firstNameControl.valid&& firstNameControl.touched"
+                      class="alert alert-danger">
+                      Enter your first name
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Last Name</label>
+                      <input #lastNameControl="ngModel" ngModel
+                             type="text" class="form-control form-control-lg rounded-0" name="last_name"  required>
+                    </div>
+                    <div
+                      *ngIf="!lastNameControl.valid&& lastNameControl.touched"
+                      class="alert alert-danger">
+                      Enter your Last name
+                    </div>
+                  </div>
+                </div>
+                <!-- Bloc Birthday + Gender              -->
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="">Birthday</label>
+                      <input #birthdayControl="ngModel" ngModel
+                             type="date" class="form-control form-control-lg rounded-0" name="birthday"  required="">
+                    </div>
+                    <div
+                      *ngIf="!birthdayControl.valid&& birthdayControl.touched"
+                      class="alert alert-danger">
+                      Select Date of birthday
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Gender</label>
+                      <div class="form-check">
+                        <input  #genderControl="ngModel" ngModel value="male"
+                                class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input  #genderControl="ngModel" ngModel
+                                class="form-check-input" type="radio" value="famale" name="gender" id="flexRadioDefault2" >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Famale
+                        </label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Bloc email + phone            -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Email</label>
+                      <input  #emailControl="ngModel" ngModel
+                              type="email" class="form-control form-control-lg rounded-0" name="email"  required>
+                    </div>
+                    <div
+                      *ngIf="!emailControl.valid&& emailControl.touched"
+                      class="alert alert-danger">
+                      Enter your email
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Phone Number</label>
+                      <input #phoneNumberControl="ngModel" ngModel
+                             type="number" class="form-control form-control-lg rounded-0" name="phone_number"  required>
+                    </div>
+                    <div
+                      *ngIf="!phoneNumberControl.valid&& phoneNumberControl.touched"
+                      class="alert alert-danger">
+                      Enter your phone number
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Subject</label>
+                  <select
+                    #subjectControl="ngModel" ngModel required name="subject"
+                    class="form-select" aria-label="Default select example">
+                    <option value="Angular">Angular</option>
+                    <option value="Symfony">Symfony</option>
+                    <option value="MySQL">MySQL</option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="!emailControl.valid&& emailControl.touched"
+                  class="alert alert-danger">
+                  Select one option
+                </div>
+                <br>
+                <div class="form-group">
+                  <button [disabled]="inscriptionForm.invalid"
+                          (click)="inscription(inscriptionForm)"
+                          type="submit" class="btn btn-dark align-content-around" id="btnLogin">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!--/card-block-->
+          </div>
+          <!-- /form card login -->
+        </div>
+      </div>
+      <!--/row-->
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+</div>
